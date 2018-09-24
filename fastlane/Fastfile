@@ -71,14 +71,9 @@ lane :deploy do |options|
 		path: "InstantSearchCore.podspec"
 	)
 
-	version_bump_podspec(
-		bump_type: options[:type],
-		path: "InstantSearchCoreOffline.podspec"
-	)
-
 	#puts changelog_from_git_commits
 	git_commit(
-		path: ["InstantSearchCore.podspec", "InstantSearchCoreOffline.podspec", "Sources/Info.plist" ,"Tests/Info.plist"], 
+		path: ["InstantSearchCore.podspec", "Sources/Info.plist" ,"Tests/Info.plist"], 
 		message: "Version #{new_build_number}"
 	)
 	add_git_tag(
@@ -88,10 +83,6 @@ lane :deploy do |options|
 	push_to_git_remote(remote: "origin")
 	pod_push(
 		path: "InstantSearchCore.podspec"
-	)
-
-	pod_push(
-		path: "InstantSearchCoreOffline.podspec"
 	)
 end
 
