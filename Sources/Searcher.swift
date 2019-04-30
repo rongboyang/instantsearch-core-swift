@@ -216,7 +216,7 @@ import Foundation
   @objc public private(set) dynamic var results: SearchResults?
 
   /// The hits for all pages requested of the latest query.
-  @objc public private(set) var hits: [[String: Any]] = []
+  @objc public var hits: [[String: Any]] = []
 
   // Name of the index that the Searcher targets.
   public var indexName: String = ""
